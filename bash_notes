@@ -1,0 +1,190 @@
+BASH NOTES
+
+Bash - Bourne Again SHell
+
+#Bash scripts file type
+.sh
+#Bash config file
+~/.bashrc
+#Bash version
+$bash --version
+
+#a bash script starts with the sha-bang (#!) at the head followed by the path name
+for example:
+#!/bin/sh
+
+#check known shells on system
+$cat /etc/shells
+
+#print 
+#printf - exit without 0 on errors, allow string formatting
+printf "Name:\t%s\nID:\t%04d\n" "Eric" "12"
+#echo - exit with 0, command followed by a end of line character
+
+#display host name and user name
+$echo $HOSTNAME
+$echo $USER
+
+#change mode
+#chmod 
+
+#invoke the script
+$sh script_name
+$bash script_name
+
+#browse a file
+$cat file.txt
+$more file.txt
+$tail file.txt
+$head file.txt
+
+#create new file
+$touch {apple, banana, peach}
+#create file_1 to file_1000 but file name is not sorted
+$touch file_{1..1000}
+#sorted
+$touch file_{01..1000}
+#range with step
+$echo {1..10..2}
+
+#pipes- one ouput as the input of another command
+$ls | more
+
+#standard input, output, and error
+#1 - output, 2 - error, & - output and error
+$cp -v * ../otherfolder 1>../success.txt 2>../error.txt
+
+#search 
+$grep search_term file.txt
+#grep awk sed
+
+#make sh executable
+$chmod +x file.sh
+
+#no quote, single quote, double quote
+
+#command substitution
+$a=$(pwd)
+
+#math operations
+#(())
+#assign a value
+$d=2
+$e=$(($d+2))
+$((e++))
+
+#comparison operations
+#return 0 means success, 1 means failure
+$[[$a == $b]]
+
+#concat strings
+a='hello'
+b='world'
+c=$a$b
+#length of a string
+echo ${#c}
+#start from the 4th character
+echo ${c:3}
+#start from 4th and select 4 char
+echo ${c:3:4}
+#get last 4 char
+echo ${c: -4}
+#get first 3 of the last 4 char
+echo ${c: -4:3}
+#replace chars
+#replace first banana with apple
+a='apple banana banana'
+echo ${a/banana/apple}
+#replace all banana with apple
+echo ${a//banana/apple}
+#replace a string only if it is at the beginning
+echo ${a/#apple/banana}
+#replace a string only if it is at the end
+echo ${a/%banana/apple}
+#wild card
+echo ${a/b*/apple}
+
+#date
+date +"%d-%m-%Y"
+
+#array
+a=()
+b=("apple", "banana")
+echo ${b[1]}
+b[5] = "cherry"
+b+=("mango")
+#all elements
+echo ${b[@]}
+#last element
+echo ${b[@]: -1}
+#associative array
+declare -A myArray
+myArray[color]=blue
+myArray["hello world"]="no problem"
+
+#write to file
+>
+#append to file 
+>>
+
+#if statement
+if exp
+then 
+elif
+else
+fi;
+
+#while
+while exp; do
+done
+
+#for loop
+for i in 1 2 3
+do 
+done
+
+for ((i=0;i<100;i++))
+do
+done
+
+#case statement
+case $a in
+	cat);;
+	dog);;
+	a|b);;
+	*) break;;
+esac
+
+#function
+function something {
+
+}
+#call a function 
+something
+#pass a parameter
+something para
+
+#arguments
+$1 - the first argument
+$2 - the second argument
+$@ - all arguments
+$# - the number of arguments
+
+#read input
+read var
+#silently not display input
+read -s var
+
+#select animal in "cat" "dog" "lion"
+do 
+	echo "You select $animal"
+done
+
+
+
+
+
+
+
+
+

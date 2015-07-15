@@ -1,0 +1,253 @@
+# write file and quit
+	* shift + zz
+	* :wq
+	* :x
+
+# quit without saving
+	:q!
+
+# write to a file
+	:w
+# make a copy (will stay on current file after saving)
+	:w file_name
+
+# edit another file
+	:vim file_name
+
+# go to the next file
+	:n
+# force move to next file without saving
+	:n!
+
+# go to the prev file
+	:N
+# force move
+	:N!
+
+# go to the first file
+	:rew
+
+# read file into this one
+	:r file_name
+
+# display line number, file status
+	[Ctrl] + g
+
+# modes in vim
+	* command
+	* insert
+	* prompt
+
+# cursor movement
+	* move left, right, up, down
+		hlkj
+	* move forward
+		[Space]
+	* move backward
+		[Backspace]
+	* move to the beginning of nex line
+		[Return]
+	* move to the beginning of the prev line
+		-
+	* can use a number before movement commands
+		10h, 3-
+
+# move by textual units
+	* forward a word
+		w
+	* backward a word
+		b
+	* forward to end of current or next word
+		e
+	* forward a sentence
+		)
+	* backward a sentence
+		(
+	* forward a paragraph
+		}
+	* backward a paragraph
+		{
+	* can use a number before the command
+		2w, 10b, 6(, 3}
+
+# move by lines
+	* beginning of line
+		^
+	* end of line
+		$
+	* first line of file
+		1G
+	* last line of file
+		G
+	* line n of file
+		nG
+	* match parenthesis/brace
+		%
+
+# scroll
+	* scroll down one line (expose)
+		[Ctrl] + e
+	* scroll up one line
+		[Ctrl] + y
+	* scroll down half a screen
+		[Ctrl] + d
+	* scroll up half a screen
+		[Ctrl] + u
+	* scroll down one screen (forward)
+		[Ctrl] + f
+	* scroll up one screen (backward)
+		[Ctrl] + b
+
+# insert mode
+	* insert before cursor
+		i
+	* insert beginning of line
+		I
+	* append after cursor
+		a
+	* append at end of line
+		A
+	* open a new line below
+		o
+	* open a new line above
+		O
+	* return to command mode
+		[return]
+
+# delete text
+	* current char
+		x
+	* current line
+		dd
+	* current word
+		dw
+	* to end of word (only the word, leave the space)
+		de
+	* to beginning of line
+		d^
+	* to end of line
+		d$
+	* can use dx, where x is any movement command
+	* can use a number before any deletion command
+		5dd, 3de
+
+# change text
+	* current char (stay in command mode)
+		r
+	* current char (change to insert mode)
+		s
+	* current line (insert mode)
+		cc
+	* current word (insert mode)
+		cw/ce
+	* to beginning of line
+		c^
+	* to end of line
+		c$/C
+	* c can use number or any movement command
+		3cw
+
+# misc
+	* overwrite mode
+		R
+	* change the case of char at the cursor
+		~
+	* join next line to the current line
+		J
+	* can use a number before all these commands
+		10~, 3J
+
+# undo, redo, repeat
+	* undo last change
+		u
+	* undo undo
+		[ctrl] + r
+	* undo all changes to current line
+		U
+	* repeat the last change
+		.
+
+# delete, yank, put
+	* delete (cut) line
+		dd
+	* yank (copy) line
+		yy
+	* yank (copy) word
+		yw
+	* deletes and yanks go into buffer, not OS clipboard
+	* put after cursor
+		p
+	* put before cursor
+		P
+	* y can use number or any movement command
+		3dd, 2yy
+
+# search
+	* search forward for text
+		/text
+	* search backward for text
+		?text
+	* next/prev result
+		n/N
+
+# match any single char
+	* period represent any char
+		/c..y (copy)
+	* escape char
+		\
+	* match line start and end
+		/^abc (line starts with abc)
+		/abc$ (line ends with abc)
+	* match any char in set
+		a[a-z]c matches abc, not abbc
+		a[^a-z]c (negate)
+	* match zero or more repeats
+		*
+		se*m: e repeats 0 or more times
+	* match group repeat
+		\(\)
+		\(ab\)*c matches abababc
+	* greediness
+
+# search and replace
+	* replace first old with new on current line
+		:s/old/new/
+	* replace all old with new on current line
+		:s/old/new/g
+	* replace first old with new on every line
+		:%s/old/new/
+	* replace all olde with new on every line
+		:%s/old/new/g
+	* delimiter / can be any char
+	* old is a regex, new is generally a string
+	* & represents what is found
+	* 1,2 represent the first and second thing found
+
+# indenting, auto-indenting, word wrap
+	* indent current line
+		>>
+	* outdent current line
+		<<
+	* can use number or movement command
+		2>> (indent 2 lines)
+	* enable auto-indent
+		:se ai
+	* disable auto-indent
+		:se noai
+	* set wrap margin
+		:se wm=8
+
+# environment settings
+	* .exrc file
+
+# filter through shell commands
+	* filter current line through shell command
+		!!
+	* filter n lines
+		n!!
+	* filter to matching parenthesis
+		!%
+	* filter next paragraph
+		!}
+	* filter previous paragraph
+		!{
