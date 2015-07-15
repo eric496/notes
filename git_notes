@@ -16,51 +16,51 @@
 	git init
 
 # normal workflow
-	* add to index
+	## add to index
 		git add .
-	* diff between index and working dir
+	## diff between index and working dir
 		git diff --cached
-	* diff made in working dir
+	## diff made in working dir
 		git diff
-	* brief summary of modification
+	## brief summary of modification
 		git status
-	* commit to (local) repo
+	## commit to (local) repo
 		git commit -m "message"
 
 # merge branches
 	git merge branch_name
 # resolve merge conflicts
-	* abort merge
+	## abort merge
 		git merge --abort
-	* resolve the conflicts manually
-	* use a mergetool
+	## resolve the conflicts manually
+	## use a mergetool
 
 # undo merges
 	git reset --hard HEAD
 
 # review history
-	* patch: details of a commit
+	## patch: details of a commit
 		git log -p
 		# display oneliner: short SHA
 		git log --oneline --all
 		# display full SHA
 		git log --format=oneline
-	* latest 10 commits
+	## latest 10 commits
 		git log -n 10
 		git log -10
-	* date range
+	## date range
 		git log --since="2014-07-01"
 		git log --since="2 weeks ago"
 		git log --until="2015-07-01"
-	* author
+	## author
 		git log --author="eric"
-	* between two commits
+	## between two commits
 		git log acf0809..acao089 --oneline
-	* log of a file since one commit
+	## log of a file since one commit
 		git log adcf0807.. file_name
-	* regular expression to search commit messages
+	## regular expression to search commit messages
 		git log --grep="Init"
-	* statistics of a commit: author, date, commit message, #file changed, #insertion, #deletion
+	## statistics of a commit: author, date, commit message, #file changed, #insertion, #deletion
 		git log --stat
 
 # diff between working dir and index
@@ -90,11 +90,11 @@ update/check-out (copy changes from repo to working set)
 revert/rollback (overwrite files in working set by repo version)
 
 # distributed version control
-	* push/export - send changes from one repo to another
-	* pull/inport - update working set with updates
-	* tag/label - name a specific state of a repo
-	* branch/fork - make a clone of a repo
-	* merge - integrate branch back into the original repo (trunk/main branch)
+	## push/export - send changes from one repo to another
+	## pull/inport - update working set with updates
+	## tag/label - name a specific state of a repo
+	## branch/fork - make a clone of a repo
+	## merge - integrate branch back into the original repo (trunk/main branch)
 
 # git version
 	git --version
@@ -113,11 +113,11 @@ revert/rollback (overwrite files in working set by repo version)
 	git commit -am "first commit"
 
 # writing commit messages
-	* single-line (less than 50 char)
-	* multi-line (limit to 72 char each line)
-	* in present sense, not past sense
-	* asterisks or hyphens instead of bullet points
-	* add tracking number
+	## single-line (less than 50 char)
+	## multi-line (limit to 72 char each line)
+	## in present sense, not past sense
+	## asterisks or hyphens instead of bullet points
+	## add tracking number
 
 # show author, date, message and diff of a commit
 	git show SHA
@@ -134,10 +134,10 @@ revert/rollback (overwrite files in working set by repo version)
 # switch to branch_name
 	git checkout branch_name
 # remove files from working tree and staging index
-	* move file out of the working set
+	## move file out of the working set
 		git add .
 		git commit -m "remove files"
-	* git rm file_name
+	## git rm file_name
 		git add .
 		git commit -m "remove files"
 # rename
@@ -170,19 +170,19 @@ revert/rollback (overwrite files in working set by repo version)
 	git reset --hard SHA
 
 # remove untracked files
-	* test remove
+	## test remove
 		git clean -n
-	* force run
+	## force run
 		git clean -f
 
 # ignore files
-	* in .gitignore file
-	* very basic regex: * ? [aeiou] [0-9]
-	* negate !index.php
+	## in .gitignore file
+	## very basic regex: * ? [aeiou] [0-9]
+	## negate !index.php
 
 # globally ignore files
-	* create .gitignore_global
-	* git config --global core.excludefile ~/.gitignore_global
+	## create .gitignore_global
+	## git config --global core.excludefile ~/.gitignore_global
 # ignore tracked files
 	git rm --cached file_name
 # track empty directory
@@ -190,13 +190,13 @@ revert/rollback (overwrite files in working set by repo version)
 	touch .gitkeep
 
 #reference to a commit
-	* full SHA-1 hash
-	* short SHA-1 hash
+	## full SHA-1 hash
+	## short SHA-1 hash
 		- at least 4 chars
 		- unambiguous (8 - 10 chars)
-	* HEAD pointer
-	* branch ref, tag ref
-	* ancestry
+	## HEAD pointer
+	## branch ref, tag ref
+	## ancestry
 		- HEAD^, acf89701^, master^, HEAD~1, HEAD~
 		- HEAD^^, acf80798^^, master^^
 
@@ -207,26 +207,26 @@ revert/rollback (overwrite files in working set by repo version)
 	git ls-tree master^ folder/
 
 # centralized version control flow
-	* working set
-	* remote repo
+	## working set
+	## remote repo
 
 # distributed
-	* working set
-	* local repo
-	* remote repo
+	## working set
+	## local repo
+	## remote repo
 
 # two-tree architecture
-	* working -> commit -> repo
-	* repo -> checkout -> working
+	## working -> commit -> repo
+	## repo -> checkout -> working
 # three-tree architecture: git
-	* working -> staging index -> repo
+	## working -> staging index -> repo
 					git add		     git commit
 # SHA-1 hash algo: 40 char hexdecimal string
 
 # HEAD pointer
-	* point to "tip" of current branch in repo (the latest commit)
-	* last state of repo, what was last checked out
-	* points to parent of next commit
+	## point to "tip" of current branch in repo (the latest commit)
+	## last state of repo, what was last checked out
+	## points to parent of next commit
 
 # create a branch
 	git branch new_branch
@@ -235,7 +235,7 @@ revert/rollback (overwrite files in working set by repo version)
 # create and switch at the same time
 	git checkout -b new_branch
 # switch braches with uncommited changes
-	* three methods:
+	## three methods:
 		- git checkout -- file_name
  		- git commit -am "some message"
  		- git stash save "some stash message"
@@ -277,9 +277,9 @@ revert/rollback (overwrite files in working set by repo version)
 	git push
 # fetch changes from remote
 	git fetch
-	* always fetch before work
-	* fetch before you push
-	* fetch often
+	## always fetch before work
+	## fetch before you push
+	## fetch often
 # merge in fetched changes
 	git merge origin/master
 # pull

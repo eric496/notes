@@ -1,1 +1,56 @@
-# tmux
+# prefix
+  [Ctrl] + b
+# launch tmux
+  tmux
+# start new with session name
+  tmux new -s session-name
+# attach 
+  tmux a
+# attach with name
+  tmux a -t session-name
+# list all sessions
+  tmux ls
+# kill a session
+  tmux kill-session -t session-name
+# session
+  ## create a new session
+     prefix + :new session-name
+  ## list all sessions
+     prefix + s
+  ## rename current session
+     prefix + $
+# window
+  ## create a new window
+     prefix + c
+  ## list all windows
+     prefix + w
+  ## find a window
+     prefix + f
+  ## rename a window
+     prefix + ,
+  ## kill a window
+     prefix + &
+# pane
+  ## vertical split
+     prefix + %
+  ## horizontal split
+     prefix + "
+  ## swap
+     prefix + o
+  ## show pane numbers
+     prefix + q
+  ## kill current pane
+     prefix + x
+  ## break pane to window
+     prefix + +
+  ## restore pane from window
+     prefix + -
+  ## toggle between layouts
+     prefix + [space]
+  ## move current pane to left 
+     prefix + {
+  ## move current pane to right
+     prefix + }
+  ## toggle pane zoom
+     prefix + z
+
